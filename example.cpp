@@ -15,14 +15,13 @@ int main()
   cout << "Put in your guess of what the number is!";
   while(playagain == false) { //Play again true/false flipped
     while (randomnumber != guesses){ //If you don't guess right, keep looping
-      cin >> guesses; 
+      cin >> guesses;
+      timecount++;//Counts the amount of times you guessed
       if (randomnumber > guesses){ //If your guess was too low, print it
         cout << "Your guess was too low, try again!" << endl;
-        timecount++; //Counts how many times you guessed
 	break;
       } else if (randomnumber < guesses) { //If your guess was too high, print it
         cout << "Your guess was too high, try again!" << endl;
-        timecount++;
 	break;
       } else if (randomnumber == guesses) { //If you got it correct
         cout << "Your guess was just right, well done!" << endl;
@@ -35,6 +34,7 @@ int main()
 	    cout << "Generating a new random number..." << endl; //Makes transition smoother and takes out one of the previous errors that I made.
 	    randomnumber = rand()%100; //New random number
 	    cout << "Input your guess!" << endl;
+	    timecount = 0; //Timecount reset
 	    break;
 	  case 'N':
 	    playagain = true;
