@@ -37,7 +37,7 @@ int main()
 	cout << "Would you like to play again? (Y/N)" << endl; //Want to play again?
         
 	cin >> response;
-	while ((!(response == 'Y')) && (!(response == 'N'))) {
+	while ((!(response == 'Y')) && (!(response == 'N'))) { //Requires you to input either Y or N or else it makes you reinput a response
 	  cout << "Please pick Y or N" << endl;
 	  cin >> response;
 	}
@@ -54,6 +54,8 @@ int main()
 	  cout << "Thanks for playing!" << endl; //Exit message
 	  break;
 	}
+	// Switch case didn't work
+	
         // switch (response) { //Switch for efficiency
 	//   case 'Y':
 	//     playagain = false;
