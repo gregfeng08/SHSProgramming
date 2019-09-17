@@ -1,4 +1,12 @@
 #include <iostream>
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+
+/*Code by Gregory Feng
+Edited: 9/15/19
+Program Desc: This is a program that creates a game where the user guesses a random number between 0 and 100. The program outputs the number of times that the user has guessed and also at the end, asks whether the user wants to play again or not.
+ */
+
 
 using namespace std;
 
@@ -26,26 +34,48 @@ int main()
       } else if (randomnumber == guesses) { //If you got it correct
         cout << "Your guess was just right, well done!" << endl;
         cout << "It took you " << timecount << " tries!"; //Displays how many times you tried
-	cout << "Would you like to play again?" << endl; //Want to play again?
+	cout << "Would you like to play again? (Y/N)" << endl; //Want to play again?
+        
 	cin >> response;
-        switch (response) { //Switch for efficiency
-	  case 'Y':
-	    playagain = false;
-	    cout << "Generating a new random number..." << endl; //Makes transition smoother and takes out one of the previous errors that I made.
-	    randomnumber = rand()%100; //New random number
-	    cout << "Input your guess!" << endl;
-	    timecount = 0; //Timecount reset
-	    break;
-	  case 'N':
-	    playagain = true;
-	    cout << "Thanks for playing!" << endl; //Exit message
-	    break;
-	  default:
-	    cout << "Please pick Y or N"; //In case they don't pick Y nor N
+	while ((!(response == 'Y')) && (!(response == 'N'))) {
+	  cout << "Please pick Y or N" << endl;
+	  cin >> response;
 	}
-      }
+        if (response == 'Y') {
+	  playagain = false;
+          cout << "Generating a new random number..." << endl; //Makes transition smoother and takes out one of the previous errors that I made.
+	  randomnumber = rand()%100; //New random number
+	  cout << "Input your guess!" << endl;
+	  timecount = 0; //Timecount reset
+	  break;
+	}
+	else if (response == 'N') {
+	  playagain = true;
+	  cout << "Thanks for playing!" << endl; //Exit message
+	  break;
+	}
+        // switch (response) { //Switch for efficiency
+	//   case 'Y':
+	//     playagain = false;
+        //     cout << "Generating a new random number..." << endl; //Makes transition smoother and takes out one of the previous errors that I made.
+	//     randomnumber = rand()%100; //New random number
+	//     cout << "Input your guess!" << endl;
+	//     timecount = 0; //Timecount reset
+	//     break;
+	//   case 'N':
+	//     playagain = true;
+	//     cout << "Thanks for playing!" << endl; //Exit message
+	//     break;
+	//   default:
+	//     cout << "Please pick Y or N"; //In case they don't pick Y nor N
+	   
+	    
+	
+	}
+      
     }
   }
   return 0; //Return 0
 }
+
 
